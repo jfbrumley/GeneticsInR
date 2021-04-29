@@ -46,7 +46,7 @@ rm(list = ls())
 packages_needed <- c("dplyr", "knitr", "tidyverse", "genetics",
                      "adegenet", "ade4", "ape", "pegas",
                      "hierfstat", "PopGenReport", "genepop",
-                     "diveRsity", "nnet", "mmod", "poppr")
+                     "diveRsity", "nnet", "mmod", "poppr", "NB")
 pk_to_install <- packages_needed [!( packages_needed %in% rownames(installed.packages())  )]
 if(length(pk_to_install)>0 ){
   install.packages(pk_to_install,repos="http://cran.r-project.org")}
@@ -67,6 +67,7 @@ library(diveRsity)
 library(nnet)
 library(mmod)
 library(poppr)
+library(NB)
 
 #Data Input from Input folder
 datagenepop <- "Inputs/DaTa.gen" #Creates an object for genepop file
@@ -132,7 +133,7 @@ wc(datahierfstat, diploid = TRUE)
 ```
 
 <h1>adegenet</h1>
-```{r}
+```{r message=FALSE, warning=FALSE}
 #Isolation By Distance (IBD)
 #Take pairwise Fst from hierfstat results and make a matrix
 Fst <- matrix(c(-0.02234243, -0.01731125, -0.01772141, 

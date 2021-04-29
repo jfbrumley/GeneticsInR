@@ -1,0 +1,72 @@
+Genepop 4.7.5, Genotypic linkage disequilibrium
+
+File: Inputs/DaTa.txt (Microsatellite Genotypes for Species 1 (4 Populations))
+
+Number of populations detected : 4
+Number of loci detected        : 5
+
+Markov chain parameters
+	Dememorisation       : 10000
+	Batches              : 1000
+	Iterations per batch : 10000
+
+Pop             Locus#1  Locus#2    P-Value      S.E.     Switches
+----------      -------  -------    --------     -------- --------
+Ind09           Locus01  Locus02    1            0.000000   532680
+Ind09           Locus01  Locus03    1.000000     0.000000   921925
+Ind09           Locus02  Locus03    1.000000     0.000000   922948
+Ind09           Locus01  Locus04    1.000000     0.000000   563327
+Ind09           Locus02  Locus04    0.307642     0.001541   563600
+Ind09           Locus03  Locus04    0.589128     0.001058   980772
+Ind09           Locus01  Locus05    0.905056     0.000460  1377485
+Ind09           Locus02  Locus05    0.369887     0.000857  1378295
+Ind09           Locus03  Locus05    0.405180     0.000675  1833341
+Ind09           Locus04  Locus05    0.285196     0.000739  1441951
+Ind18           Locus01  Locus02    1.000000     0.000000   330456
+Ind18           Locus01  Locus03    1.000000     0.000000  1493966
+Ind18           Locus02  Locus03    1.000000     0.000000  1420470
+Ind18           Locus01  Locus04    1.000000     0.000000   346351
+Ind18           Locus02  Locus04    1.000000     0.000000   331632
+Ind18           Locus03  Locus04    1.000000     0.000000  1491002
+Ind18           Locus01  Locus05    1.000000     0.000000   811766
+Ind18           Locus02  Locus05    0.631732     0.001359   769043
+Ind18           Locus03  Locus05    1.000000     0.000000  2221160
+Ind18           Locus04  Locus05    0.444404     0.001271   810868
+Ind26           Locus01  Locus02    1.000000     0.000000   529349
+Ind26           Locus01  Locus03    0.828107     0.000722  1029912
+Ind26           Locus02  Locus03    0.497365     0.001193   911607
+Ind26           Locus01  Locus04    0.271078     0.001104   947647
+Ind26           Locus02  Locus04    1.000000     0.000000   849676
+Ind26           Locus03  Locus04    0.744094     0.000650  1490732
+Ind26           Locus01  Locus05    0.669988     0.001288   700709
+Ind26           Locus02  Locus05    1.000000     0.000000   601589
+Ind26           Locus03  Locus05    1.000000     0.000000  1167649
+Ind26           Locus04  Locus05    0.677087     0.000938  1075725
+Ind32           Locus01  Locus02    1.000000     0.000000   627431
+Ind32           Locus01  Locus03    1.000000     0.000000   833472
+Ind32           Locus02  Locus03    1.000000     0.000000   832888
+Ind32           Locus01  Locus04    1.000000     0.000000   920423
+Ind32           Locus02  Locus04    1.000000     0.000000   922205
+Ind32           Locus03  Locus04    0.399373     0.000943  1139517
+Ind32           Locus01  Locus05    0.400825     0.000928  1134235
+Ind32           Locus02  Locus05    0.400665     0.000901  1131456
+Ind32           Locus03  Locus05    0.799065     0.000572  1221890
+Ind32           Locus04  Locus05    0.733312     0.000598  1425906
+
+P-value for each locus pair across all populations
+(Fisher's method)
+-----------------------------------------------------
+Locus pair                    Chi2      df   P-Value
+--------------------          --------  ---  --------
+Locus01       & Locus02       0.000000  8    1.000000
+Locus01       & Locus03       0.377226  8    0.999955
+Locus02       & Locus03       1.396864  8    0.994291
+Locus01       & Locus04       2.610700  8    0.956369
+Locus02       & Locus04       2.357636  8    0.968039
+Locus03       & Locus04       3.485115  8    0.900342
+Locus01       & Locus05       2.828968  8    0.944628
+Locus02       & Locus05       4.736955  8    0.785285
+Locus03       & Locus05       2.255475  8    0.972161
+Locus04       & Locus05       5.531480  8    0.699550
+
+Normal ending.

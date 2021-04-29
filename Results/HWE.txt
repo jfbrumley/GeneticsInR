@@ -1,0 +1,184 @@
+Genepop 4.7.5: Hardy-Weinberg test
+
+File: Inputs/DaTa.txt (Microsatellite Genotypes for Species 1 (4 Populations))
+
+Number of populations detected:    4
+Number of loci detected:           5
+
+
+Estimation of exact P-Values by the Markov chain method. 
+---------------------------------------------
+Markov chain parameters for all tests:
+Dememorization:              10000
+Batches:                     1000
+Iterations per batch:        10000
+Hardy Weinberg: Probability test
+        ************************
+
+
+==========================================
+     Results by locus
+==========================================
+
+
+Locus "Locus01"
+-----------------------------------------
+                             Fis estimates
+                            ---------------
+POP         P-val   S.E.    W&C     R&H     Steps 
+----------- ------- ------- ------- ------- ------
+Ind09       1.0000  0.0000  -0.0980 -0.0615 1812604 switches
+Ind18       0.2957  0.0009   0.2793  0.1877 1083965 switches
+Ind26       0.1335  0.0005  -0.0120  0.0544 1928716 switches
+Ind32       1.0000  0.0000  -0.0870 -0.0833 1597899 switches
+
+All (Fisher's method):
+ Chi2:    6.4632
+ Df   :    8
+ Prob :    0.595497
+
+Locus "Locus02"
+-----------------------------------------
+                             Fis estimates
+                            ---------------
+POP         P-val   S.E.    W&C     R&H     Steps 
+----------- ------- ------- ------- ------- ------
+Ind09       0.3728  0.0011   0.2079  0.0802 791393 switches
+Ind18       0.8162  0.0008   0.1667  0.0891 708696 switches
+Ind26       0.2134  0.0010   0.3086  0.1384 770182 switches
+Ind32       1.0000  0.0000  -0.2821 -0.0964 457241 switches
+
+All (Fisher's method):
+ Chi2:    5.4691
+ Df   :    8
+ Prob :    0.706458
+
+Locus "Locus03"
+-----------------------------------------
+                             Fis estimates
+                            ---------------
+POP         P-val   S.E.    W&C     R&H     Steps 
+----------- ------- ------- ------- ------- ------
+Ind09       0.0767  0.0002   0.2471  0.2718 2664636 switches
+Ind18       0.1924  0.0004   0.0244 -0.0824 2421291 switches
+Ind26       0.7025  0.0004   0.1250  0.1250 2201057 switches
+Ind32       1.0000  0.0000  -0.3514 -0.1619 900040 switches
+
+All (Fisher's method):
+ Chi2:    9.1391
+ Df   :    8
+ Prob :    0.330700
+
+Locus "Locus04"
+-----------------------------------------
+                             Fis estimates
+                            ---------------
+POP         P-val   S.E.    W&C     R&H     Steps 
+----------- ------- ------- ------- ------- ------
+Ind09       0.4753  0.0013  -0.1034 -0.0792 779873 switches
+Ind18       1.0000  0.0000   0.0588  0.0035 1715094 switches
+Ind26       0.3293  0.0009  -0.0606 -0.0714 968565 switches
+Ind32       0.5841  0.0009  -0.2766 -0.1750 837999 switches
+
+All (Fisher's method):
+ Chi2:    4.7846
+ Df   :    8
+ Prob :    0.780326
+
+Locus "Locus05"
+-----------------------------------------
+                             Fis estimates
+                            ---------------
+POP         P-val   S.E.    W&C     R&H     Steps 
+----------- ------- ------- ------- ------- ------
+Ind09       0.2761  0.0004  -0.4713 -0.3625 2945514 switches
+Ind18       0.0857  0.0004   0.2381  0.1076 938661 switches
+Ind26       0.2409  0.0007   0.2727  0.3929 1265848 switches
+Ind32       0.0820  0.0003   0.0000  0.2833 2359865 switches
+
+All (Fisher's method):
+ Chi2:    15.3373
+ Df   :    8
+ Prob :    0.052910
+
+==========================================
+     Results by population
+==========================================
+
+
+Pop : Ind09
+-----------------------------------------
+                             Fis estimates
+                            ---------------
+locus       P-val   S.E.    W&C     R&H     Steps 
+----------- ------- ------- ------- ------- ------
+Locus01     1.0000  0.0000  -0.0980 -0.0615 1812604 switches
+Locus02     0.3728  0.0011   0.2079  0.0802 791393 switches
+Locus03     0.0767  0.0002   0.2471  0.2718 2664636 switches
+Locus04     0.4753  0.0013  -0.1034 -0.0792 779873 switches
+Locus05     0.2761  0.0004  -0.4713 -0.3625 2945514 switches
+
+All (Fisher's method):
+ Chi2 :    11.1716
+ Df   :    10
+ Prob :    0.344307
+
+Pop : Ind18
+-----------------------------------------
+                             Fis estimates
+                            ---------------
+locus       P-val   S.E.    W&C     R&H     Steps 
+----------- ------- ------- ------- ------- ------
+Locus01     0.2957  0.0009   0.2793  0.1877 1083965 switches
+Locus02     0.8162  0.0008   0.1667  0.0891 708696 switches
+Locus03     0.1924  0.0004   0.0244 -0.0824 2421291 switches
+Locus04     1.0000  0.0000   0.0588  0.0035 1715094 switches
+Locus05     0.0857  0.0004   0.2381  0.1076 938661 switches
+
+All (Fisher's method):
+ Chi2 :    11.0539
+ Df   :    10
+ Prob :    0.353332
+
+Pop : Ind26
+-----------------------------------------
+                             Fis estimates
+                            ---------------
+locus       P-val   S.E.    W&C     R&H     Steps 
+----------- ------- ------- ------- ------- ------
+Locus01     0.1335  0.0005  -0.0120  0.0544 1928716 switches
+Locus02     0.2134  0.0010   0.3086  0.1384 770182 switches
+Locus03     0.7025  0.0004   0.1250  0.1250 2201057 switches
+Locus04     0.3293  0.0009  -0.0606 -0.0714 968565 switches
+Locus05     0.2409  0.0007   0.2727  0.3929 1265848 switches
+
+All (Fisher's method):
+ Chi2 :    12.8908
+ Df   :    10
+ Prob :    0.229840
+
+Pop : Ind32
+-----------------------------------------
+                             Fis estimates
+                            ---------------
+locus       P-val   S.E.    W&C     R&H     Steps 
+----------- ------- ------- ------- ------- ------
+Locus01     1.0000  0.0000  -0.0870 -0.0833 1597899 switches
+Locus02     1.0000  0.0000  -0.2821 -0.0964 457241 switches
+Locus03     1.0000  0.0000  -0.3514 -0.1619 900040 switches
+Locus04     0.5841  0.0009  -0.2766 -0.1750 837999 switches
+Locus05     0.0820  0.0003   0.0000  0.2833 2359865 switches
+
+All (Fisher's method):
+ Chi2 :    6.0769
+ Df   :    10
+ Prob :    0.808760
+==========================================
+ All locus, all populations 
+==========================================
+All (Fisher's method) :
+ Chi2 :    41.1933
+ Df   :    40
+ Prob :    0.418181
+
+Normal ending

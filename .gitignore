@@ -5,6 +5,8 @@
 # Session Data files
 .RData
 *.Rproj
+cmdline.txt
+fichier.in
 
 # User-specific files
 .Ruserdata
