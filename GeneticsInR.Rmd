@@ -1,0 +1,178 @@
+---
+title: <center><h1>Genetics In R</h1></center>
+author: |
+  <center>Jacob F. Brumley and Rebecca E. Blanton</center>
+  <center><font size = "2">Johansen Lab of Ichthyology at Austin Peay State University, Department of Biology and Center of Excellence for Field Biology</font></center>
+output: 
+  html_notebook:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+---
+
+This `RMarkdown` was created by the Johansen Lab for use in population genetics studies. Compiled as a functional list of code for various packages used for genetic analyses.
+
+Each chunk of code is specific for a certain R package.
+
+Within each code: "datagenind" will be the genind object the data file is saved. 
+
+In this Markdown document, I will be demonstrating an example of loading the genotype data into R in the *genepop* format. Note that both "DaTa.txt" and "DaTa.gen" are the same files in different formats. I would create the "DaTa.txt" file from the genotype data, copy and paste in another folder, change the file type to ".gen", and move both it into the project folder.
+
+I have added example data documents (".txt" and ".gen" files) into the 'Inputs' folder of the R-Project. The "DaTa.txt"/"DaTa.gen" and "NB.txt" files are accompanied with explanation ".txt" files that explain the format for each document.
+
+For help with *genepop* format reference:
+
+http://www.med.kagawa-u.ac.jp/~genomelb/takezaki/poptree2/test_genepop.html
+
+**Instruction:**
+
+**First**, create an R-Project with a set directory. 
+
+**Second**, within the project folder, create an 'inputs' folder where you store your genotype data (in *genepop* format in two identical documents - one a ".txt" file and the other in a ".gen" file).
+
+**Third**, create an RMarkdown document (.Rmd) and code away!
+
+***
+
+<h1>Setup</h1>
+```{r}
+knitr::opts_chunk$set(echo = TRUE)
+
+#Clear R's Brain
+rm(list = ls())
+
+#Install Packages Needed
+packages_needed <- c("dplyr", "knitr", "tidyverse", "genetics",
+                     "adegenet", "ade4", "ape", "pegas",
+                     "hierfstat", "PopGenReport", "genepop",
+                     "diveRsity", "nnet", "mmod", "poppr")
+pk_to_install <- packages_needed [!( packages_needed %in% rownames(installed.packages())  )]
+if(length(pk_to_install)>0 ){
+  install.packages(pk_to_install,repos="http://cran.r-project.org")}
+
+#Loading Packages Needed
+library(dplyr)
+library(knitr)
+library(tidyverse)
+library(genetics)
+library(adegenet)
+library(ade4)
+library(pegas)
+library(ape)
+library(hierfstat)
+library(PopGenReport)
+library(genepop)
+library(diveRsity)
+library(nnet)
+library(mmod)
+library(poppr)
+
+#Data Input from Input folder
+datagenepop <- "Inputs/DaTa.gen" #Creates an object for genepop file
+datagenind <- read.genepop("Inputs/DaTa.gen") #Converts genepop to genind
+datahierfstat <-genind2hierfstat(datagenind) #Converts genind to hierfstat
+NB <- "Inputs/NB.txt" #Creates an object for NB file
+```
+
+<h1>genepop</h1>
+```{r}
+#Genepop will read your input file as a .txt document
+#Testing for Linkage Disequilibrium between loci
+test_LD("Inputs/DaTa.txt", 
+        outputFile = "Results/LD.txt",
+        dememorization = 10000, batches = 1000, iterations = 10000,
+        verbose = interactive())
+#Testing for deviation from HWE usign exact tests (loci, population, and species as a whole)
+test_HW("Inputs/DaTa.txt", which = "Proba", 
+        outputFile = "Results/HWE.txt",
+        enumeration = FALSE, dememorization = 10000, batches = 1000,
+        iterations = 10000, verbose = interactive())
+#Both functions will produce a .txt file of the results in the "Results" folder.
+```
+
+<h1>PopGenReport</h1>
+```{r}
+popgenreport(datagenind, foldername = "Results/PopGenReport", 
+             mk.complete = TRUE, mk.Rcode = TRUE, mk.pdf = TRUE, 
+             path.pgr = getwd())
+#The popgenreport() function will provide you with graphics and results of basic genetic diversity functions.
+#The graphics and results will be placed in a folder called "PopGenReport" in your Results folder (if you do not have a "PopGenReport" folder, the package will create one for you using this code).
+```
+
+<h1>diveRsity</h1>
+```{r}
+divBasic(datagenepop, 
+         outfile = "Results/DivBasicResults.txt", 
+         gp = 2, bootstraps = 10000, HWEexact = TRUE, mcRep = 10000)
+#The divBasic() function will produce measures of allelic richness (with CI; by rarefaction), allele numbers for populations, observed and expected heterozygosity, and inbreeding coefficients (Fis with CI).
+```
+
+<h1>NB</h1>
+```{r}
+#Effective Population Size
+NB.estimator(NB, alleles = rep(4,5), sample.interval = c(0, 2),
+             bound = c(10, 1e7), profile.likelihood = TRUE)
+NB.plot.likelihood(NB, alleles = rep(4,5), sample.interval = c(0, 2),
+                   lb = 10, ub = 100, step = 1000)
+#alleles = rep(4,5) is saying that there are 5 loci with 4 alleles each
+#sample.interval = c(0, 2) is saying that temporal unit 1 is generation 0 and temporal unit 2 is generation 2
+```
+
+
+<h1>hierfstat</h1>
+```{r}
+#Weir-Cockerham Pairwise Fst (Fixation between poplations)
+pairwise.WCfst(datahierfstat, diploid = TRUE)
+#CI for pairwise Fst
+boot.ppfst(datahierfstat, nboot = 10000, 
+           quant = c(0.025, 0.975), diploid = TRUE)
+#Weir-Cockerham Fst and Fis for species as a whole
+wc(datahierfstat, diploid = TRUE)
+```
+
+<h1>adegenet</h1>
+```{r}
+#Isolation By Distance (IBD)
+#Take pairwise Fst from hierfstat results and make a matrix
+Fst <- matrix(c(-0.02234243, -0.01731125, -0.01772141, 
+                 NA, -0.008554427, -0.029240612,
+                 NA, NA, 0.015931560),
+               nrow = 3, ncol = 3) 
+Fst
+Fst.matrix <- as.matrix(Fst) 
+Fst.dis <- as.dist(Fst.matrix) #Converts matrix to distance object
+#Form matrix with the log transformed geographic distances (Km) between populations
+river <- matrix(c(0.728353782, 1.198106999, 1.43964843,
+                   NA, 0.773786445, 1.247482261,
+                   NA, NA, 1.069668097),
+                nrow = 3, ncol = 3)
+river
+river.matrix <- as.matrix(river)
+river.dis <- as.dist(river.matrix) #Converts matrix to distance object
+#Mantel random permutation test to determine IBD
+mantel.randtest(river.dis, Fst.dis, nrepet=10000)
+
+#Discriminant Analysis of Principal Components
+#Find clusters for DAPC
+grp1 <- find.clusters(datagenind, max.n.clust = 40)
+#retain 200 PCs and use BIC graph to determine the number of clusters
+#Lowest BIC is the best fit (optimal number of clusters)
+table.value(table(pop(datagenind), grp1$grp))
+#Run DAPC
+dapc1 <- dapc(datagenind, grp1$grp)
+dapc1
+#Retain PCs that explain majority of variation
+#Retain as many discriminant functions as possible
+scatter(dapc1)
+compoplot(dapc1)#STRUCUTRE-like plot
+#Run DAPC without defined clusters (use populations)
+dapc2 <- dapc(datagenind)
+dapc2
+#Retain PCs that explain majority of variation
+#Retain as many discriminant functions as possible
+scatter(dapc2)
+compoplot(dapc2) #STRUCUTRE-like polt
+```
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>

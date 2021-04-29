@@ -1,0 +1,92 @@
+Microsatellite Genotypes for Species 1 (4 Populations)
+	Locus01, Locus02, Locus03, Locus04, Locus05
+Pop
+Ind01, 0205 0303 0303 0507 0204
+Ind02, 0205 0406 0304 0104 0203
+Ind03, 0305 0303 0104 0406 0204
+Ind04, 0105 0306 0104 0306 0203
+Ind05, 0102 0606 0101 0506 0203
+Ind06, 0505 0406 0101 0104 0203
+Ind07, 0105 0308 0101 0406 0202
+Ind08, 0205 0305 0104 0404 0204
+Ind09, 0101 0303 0101 0506 0203
+Pop
+Ind10, 0205 0103 0104 0406 0303
+Ind11, 0105 0303 0101 0404 0202
+Ind12, 0101 0203 0101 0405 0202
+Ind13, 0505 0304 0101 0506 0405
+Ind14, 0505 0303 0304 0405 0202
+Ind15, 0202 0208 0304 0404 0203
+Ind16, 0106 0808 0104 0105 0202
+Ind17, 0204 0303 0104 0104 0203
+Ind18, 0205 0308 0101 0505 0203
+Pop
+Ind19, 0101 0303 0101 0405 0203 
+Ind20, 0103 0606 0103 0404 0103 
+Ind21, 0205 0307 0104 0404 0203 
+Ind22, 0505 0303 0104 0406 0303 
+Ind23, 0205 0303 0101 0404 0202 
+Ind24, 0205 0506 0101 0405 0404 
+Ind25, 0205 0608 0103 0405 0203 
+Ind26, 0305 0308 0303 0206 0303 
+Pop
+Ind27, 0104 0308 0101 0306 0404 
+Ind28, 0205 0203 0102 0405 0203 
+Ind29, 0102 0203 0104 0105 0203 
+Ind30, 0102 0303 0103 0506 0203 
+Ind31, 0105 0304 0102 0105 0202 
+Ind32, 0505 0306 0102 0405 0203 
+
+  
+Explanation:
+
+We are looking at the microsatellite genotype data for a single species (Species 1).
+We are using 5 loci (Locus01, Locus02, Locus03, Locus04, Locus05).
+We have genotype data for 32 individuals (Ind01 through Ind32).
+These 32 individuals are part of 4 "populations", ranging from 6 to 9 individuals.
+  Note that the analyses will name the "populations" with the first or last individual's ID.
+
+Here, we explore the "genepop" format for genotype data. We use the genepop 2 method, where each allele gets a double-digit number.
+So, we can break this down in a couple of ways:
+
+ 1. Each column of numbers is related to a locus/primer (Primers are labeled in Row 1 with comma "," in between)
+	Column 1 = Locus01
+	Column 2 = Locus02
+	Column 3 = Locus03
+	Column 4 = Locus04
+	Column 5 = Locus05
+
+ 2. Each set of 4 numbers is the genotype of the individual for that locus
+	Ind01 has a 0205 genotype for locus Locus01 and a 0303 genotype for locus Locus02
+
+ 3. Genotypes are denoted specifically for each locus, as such:
+	Locus01 has 6 alleles present in the species
+		Each allele is given a specific number (01 through 06)
+		Each individual's genotype is then converted to these numbers (Ind13 has a genotype of 0505)
+
+ 4. notes: always separate individuals from genotypes with a comma
+	   "Pop" is always needed to separate "populations" from each other
+
+
+Example:
+From GeneMarker format to Genepop format:
+
+We can look specifically as Locus03.
+We look through all 15 individuals as see 4 distinct alleles.
+	These alleles are at bp = c(214, 220, 224, 232).
+We can then give each distinct allele a number 01 through 04.
+	bp 214 = 01
+	bp 220 = 02
+	bp 224 = 03
+	bp 232 = 04
+Then we go through each individual and assign these numbers to their genotypes.
+	Ind01 genotype = bp 224 -> therefore in genepop = 0303
+	Ind05 genotype = bp 214 -> therefore in genepop = 0101
+	Ind10 genotype = bp 214, 232 -> therefore in genepop = 0104
+	Ind14 genotype = bp 224, 232 -> therefore in genepop = 0304
+	Ind28 genotype = bp 214, 220 -> therefore in genepop = 0102
+Homozygous individuals are given 0x0x genotypes.
+Heterozygous individuals are given 0x0y genotypes.
+			
+**This explanation works for the DaTa.gen file as well - it's identical to DaTa.txt.**
+**Save a copy in both .txt and .gen file formats.**
