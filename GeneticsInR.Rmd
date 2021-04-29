@@ -36,7 +36,7 @@ http://www.med.kagawa-u.ac.jp/~genomelb/takezaki/poptree2/test_genepop.html
 ***
 
 <h1>Setup</h1>
-```{r}
+```{r echo=TRUE}
 #Clear R's Brain
 rm(list = ls())
 
