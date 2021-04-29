@@ -2917,45 +2917,6 @@ Setup
 </h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxua25pdHI6Om9wdHNfY2h1bmskc2V0KGVjaG8gPSBUUlVFKVxuXG4jQ2xlYXIgUidzIEJyYWluXG5ybShsaXN0ID0gbHMoKSlcblxuI0luc3RhbGwgUGFja2FnZXMgTmVlZGVkXG5wYWNrYWdlc19uZWVkZWQgPC0gYyhcImRwbHlyXCIsIFwia25pdHJcIiwgXCJ0aWR5dmVyc2VcIiwgXCJnZW5ldGljc1wiLFxuICAgICAgICAgICAgICAgICAgICAgXCJhZGVnZW5ldFwiLCBcImFkZTRcIiwgXCJhcGVcIiwgXCJwZWdhc1wiLFxuICAgICAgICAgICAgICAgICAgICAgXCJoaWVyZnN0YXRcIiwgXCJQb3BHZW5SZXBvcnRcIiwgXCJnZW5lcG9wXCIsXG4gICAgICAgICAgICAgICAgICAgICBcImRpdmVSc2l0eVwiLCBcIm5uZXRcIiwgXCJtbW9kXCIsIFwicG9wcHJcIiwgXCJOQlwiKVxucGtfdG9faW5zdGFsbCA8LSBwYWNrYWdlc19uZWVkZWQgWyEoIHBhY2thZ2VzX25lZWRlZCAlaW4lIHJvd25hbWVzKGluc3RhbGxlZC5wYWNrYWdlcygpKSAgKV1cbmlmKGxlbmd0aChwa190b19pbnN0YWxsKT4wICl7XG4gIGluc3RhbGwucGFja2FnZXMocGtfdG9faW5zdGFsbCxyZXBvcz1cImh0dHA6Ly9jcmFuLnItcHJvamVjdC5vcmdcIil9XG5cbiNMb2FkaW5nIFBhY2thZ2VzIE5lZWRlZFxubGlicmFyeShkcGx5cilcbmxpYnJhcnkoa25pdHIpXG5saWJyYXJ5KHRpZHl2ZXJzZSlcbmxpYnJhcnkoZ2VuZXRpY3MpXG5saWJyYXJ5KGFkZWdlbmV0KVxubGlicmFyeShhZGU0KVxubGlicmFyeShwZWdhcylcbmxpYnJhcnkoYXBlKVxubGlicmFyeShoaWVyZnN0YXQpXG5saWJyYXJ5KFBvcEdlblJlcG9ydClcbmxpYnJhcnkoZ2VuZXBvcClcbmxpYnJhcnkoZGl2ZVJzaXR5KVxubGlicmFyeShubmV0KVxubGlicmFyeShtbW9kKVxubGlicmFyeShwb3BwcilcbmxpYnJhcnkoTkIpXG5cbiNEYXRhIElucHV0IGZyb20gSW5wdXQgZm9sZGVyXG5kYXRhZ2VuZXBvcCA8LSBcIklucHV0cy9EYVRhLmdlblwiICNDcmVhdGVzIGFuIG9iamVjdCBmb3IgZ2VuZXBvcCBmaWxlXG5kYXRhZ2VuaW5kIDwtIHJlYWQuZ2VuZXBvcChcIklucHV0cy9EYVRhLmdlblwiKSAjQ29udmVydHMgZ2VuZXBvcCB0byBnZW5pbmRcbmRhdGFoaWVyZnN0YXQgPC1nZW5pbmQyaGllcmZzdGF0KGRhdGFnZW5pbmQpICNDb252ZXJ0cyBnZW5pbmQgdG8gaGllcmZzdGF0XG5OQiA8LSBcIklucHV0cy9OQi50eHRcIiAjQ3JlYXRlcyBhbiBvYmplY3QgZm9yIE5CIGZpbGVcbmBgYCJ9 -->
-<pre class="r"><code>knitr::opts_chunk$set(echo = TRUE)
-
-#Clear R&#39;s Brain
-rm(list = ls())
-
-#Install Packages Needed
-packages_needed &lt;- c(&quot;dplyr&quot;, &quot;knitr&quot;, &quot;tidyverse&quot;, &quot;genetics&quot;,
-                     &quot;adegenet&quot;, &quot;ade4&quot;, &quot;ape&quot;, &quot;pegas&quot;,
-                     &quot;hierfstat&quot;, &quot;PopGenReport&quot;, &quot;genepop&quot;,
-                     &quot;diveRsity&quot;, &quot;nnet&quot;, &quot;mmod&quot;, &quot;poppr&quot;, &quot;NB&quot;)
-pk_to_install &lt;- packages_needed [!( packages_needed %in% rownames(installed.packages())  )]
-if(length(pk_to_install)&gt;0 ){
-  install.packages(pk_to_install,repos=&quot;http://cran.r-project.org&quot;)}
-
-#Loading Packages Needed
-library(dplyr)
-library(knitr)
-library(tidyverse)
-library(genetics)
-library(adegenet)
-library(ade4)
-library(pegas)
-library(ape)
-library(hierfstat)
-library(PopGenReport)
-library(genepop)
-library(diveRsity)
-library(nnet)
-library(mmod)
-library(poppr)
-library(NB)
-
-#Data Input from Input folder
-datagenepop &lt;- &quot;Inputs/DaTa.gen&quot; #Creates an object for genepop file
-datagenind &lt;- read.genepop(&quot;Inputs/DaTa.gen&quot;) #Converts genepop to genind
-datahierfstat &lt;-genind2hierfstat(datagenind) #Converts genind to hierfstat
-NB &lt;- &quot;Inputs/NB.txt&quot; #Creates an object for NB file</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <h1>
